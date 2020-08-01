@@ -14,6 +14,18 @@ The script will output the GPU and CPU temperatures timestamped in ISO8601 and w
 
 **./pi_temp_log.sh**
 
+## Sample Output:
+
+```
+Sat Aug  1 20:20:28 UTC 2020 @ LibreELEC
+-------------------------------------------
+GPU     -  CPU   -  TIME
+33.0'C  -  33'C  -  2020-08-01T20:20:28+0000
+32.0'C  -  33'C  -  2020-08-01T20:20:31+0000
+33.0'C  -  33'C  -  2020-08-01T20:20:34+0000
+33.0'C  -  33'C  -  2020-08-01T20:20:37+0000
+32.0'C  -  33'C  -  2020-08-01T20:20:40+0000
+```
 ## The Code
 
 ```bash
@@ -53,3 +65,5 @@ done
 
 ## Future Enhancements 
 - Check for pi_temp.log, create if not found
+- Change GPU to INT value
+- Add clock values to output
