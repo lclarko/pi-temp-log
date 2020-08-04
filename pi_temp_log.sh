@@ -24,12 +24,13 @@ if [[ ! -f "./pi_temp.log" ]]
 then touch pi_temp.log && echo "Created pi_temp.log"
 fi
 
-# Assign CPU temp to variable for future calculation
-cpu=$( cat /sys/class/thermal/thermal_zone0/temp)
 echo "$(date) @ $(hostname)" | tee -a ${LOG_FILE}
 echo "-------------------------------------------"
 echo "GPU     -  CPU   -  TIME"
+
 while true; do
+# Assign CPU temp to variable for future calculation
+cpu=$( cat /sys/class/thermal/thermal_zone0/temp)
 
 # Return GPU and CPU temp in celcius + 8601 timestamp
 echo "$(/opt/vc/bin/vcgencmd measure_temp | cut -d = -f2)  -  $((cpu/1000))'C  -  $(date -I'seconds')" | tee -a ${LOG_FILE}
