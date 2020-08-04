@@ -2,7 +2,6 @@
 # Script: pi_temp_log.sh
 # Use: Log the ARM CPU and GPU temperatures of your Raspberry Pi 4
 # ASCII art adapted from user b3n on raspberrypi.org
-# Tested on: LibreELEC 9.X.X
 # Author: Lane Clark github.com/lclarko
 # License: GPL-3.0
 ###########
@@ -35,6 +34,6 @@ cpu=$( cat /sys/class/thermal/thermal_zone0/temp)
 # Return GPU and CPU temp in celcius + 8601 timestamp
 echo "$(/opt/vc/bin/vcgencmd measure_temp | cut -d = -f2)  -  $((cpu/1000))'C  -  $(date -I'seconds')" | tee -a ${LOG_FILE}
 
-# Temperature measurement interval
+# Measurement interval
 sleep 3
 done

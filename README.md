@@ -37,7 +37,6 @@ GPU     -  CPU   -  TIME
 # Script: pi_temp_log.sh
 # Use: Log the ARM CPU and GPU temperatures of your Raspberry Pi 4
 # ASCII art adapted from user b3n on raspberrypi.org
-# Tested on: LibreELEC 9.X.X
 # Author: Lane Clark github.com/lclarko
 # License: GPL-3.0
 ###########
