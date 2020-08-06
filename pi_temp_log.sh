@@ -34,7 +34,7 @@ gpu_temp=$(vcgencmd measure_temp | cut -d = -f2 | cut -d . -f 1)
 arm_clock=$(vcgencmd measure_clock arm  | cut -d = -f2)
 gpu_clock=$(vcgencmd measure_clock core  | cut -d = -f2)
 
-# Return GPU and CPU temp in celcius + 8601 timestamp
+# Return all the values + 8601 timestamp
 echo "$((cpu_temp/1000))'C @ $((arm_clock/1000000))MHz   -   $((gpu_temp))'C @ $((gpu_clock/1000000))MHz   -   $(date -I'seconds')" | tee -a ${LOG_FILE}
 # Measurement interval
 sleep 3
