@@ -35,7 +35,7 @@ Sat Aug  1 20:20:28 UTC 2020 @ LibreELEC
 ```bash
 #!/bin/bash
 # Script: pi_temp_log.sh
-# Use: Log the ARM CPU and GPU temperatures of your Raspberry Pi 4
+# Use: Logs the CPU and GPU temperatures and clock values of your Raspberry Pi 4
 # ASCII art adapted from user b3n on raspberrypi.org
 # Author: Lane Clark github.com/lclarko
 # License: GPL-3.0
@@ -43,8 +43,8 @@ Sat Aug  1 20:20:28 UTC 2020 @ LibreELEC
 echo "
    .~~.   .~~.        Raspberry Pi 4
   '. \ ' ' / .'         GPU + CPU
-   .~ .~~~..~.      Temperature Monitor
-  : .~.'~'.~. :
+   .~ .~~~..~.         Temp + Clock
+  : .~.'~'.~. :          Monitor
  ~ (   ) (   ) ~
 ( : '~'.~.'~' : )
  ~ .~ (   ) ~. ~
@@ -60,16 +60,18 @@ fi
 
 echo "$(date) @ $(hostname)" | tee -a ${LOG_FILE}
 echo "-------------------------------------------"
-echo "GPU     -  CPU   -  TIME"
+echo "    CPU         -       GPU         -   TIME"
 
 while true; do
-# Assign CPU temp to variable for future calculation
-cpu=$( cat /sys/class/thermal/thermal_zone0/temp)
+# Assigning measurments to variables
+cpu_temp=$(cat /sys/class/thermal/thermal_zone0/temp)
+gpu_temp=$(vcgencmd measure_temp | cut -d = -f2 | cut -d . -f 1)
+arm_clock=$(vcgencmd measure_clock arm  | cut -d = -f2)
+gpu_clock=$(vcgencmd measure_clock core  | cut -d = -f2)
 
-# Return GPU and CPU temp in celcius + 8601 timestamp
-echo "$(/opt/vc/bin/vcgencmd measure_temp | cut -d = -f2)  -  $((cpu/1000))'C  -  $(date -I'seconds')" | tee -a ${LOG_FILE}
-
-# Temperature measurement interval
+# Return all the values + 8601 timestamp
+echo "$((cpu_temp/1000))'C @ $((arm_clock/1000000))MHz   -   $((gpu_temp))'C @ $((gpu_clock/1000000))MHz   -   $(date -I'seconds')" | tee -a ${LOG_FILE}
+# Measurement interval
 sleep 3
 done
 ```
