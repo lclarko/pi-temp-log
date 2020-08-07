@@ -1,15 +1,15 @@
 # pi-temp-log
 
-## Purpose:
+## Purpose
 Logging the CPU and GPU temperatures and clock values of your Raspberry Pi 4
 
 The script will output the GPU and CPU temperatures and clock values, timestamped in ISO 8601 and write that output to a log file. Future logging sessions will be appended to the log file.
 
-## Requirements:
+## Requirements
 - A Raspberry Pi 4 (Should work on 3 also, perhaps with slight modification)
 - Shell access with root privileges
 
-## Usage:
+## Usage
 
 **./pi_temp_log.sh**
 
@@ -17,18 +17,9 @@ The script will output the GPU and CPU temperatures and clock values, timestampe
 
 **chmod +x pi_temp_log.sh**
 
-## Sample Output:
+## Demo
 
-```
-Fri Aug  7 02:34:11 UTC 2020 @ LibreELEC
--------------------------------------------
-CPU			        GPU			        TIME
-32'C	750MHz		32'C	250MHz		2020-08-07T02:34:11+0000
-30'C	750MHz		30'C	250MHz		2020-08-07T02:34:14+0000
-30'C	750MHz		30'C	250MHz		2020-08-07T02:34:17+0000
-30'C	750MHz		30'C	250MHz		2020-08-07T02:34:20+0000
-29'C	750MHz		29'C	250MHz		2020-08-07T02:34:23+0000
-```
+![demo_pi_temp_log](demo_pi_temp_log.gif)
 
 ## The Code
 
