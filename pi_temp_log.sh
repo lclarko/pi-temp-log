@@ -24,8 +24,8 @@ then touch pi_temp.log && echo "Created pi_temp.log"
 fi
 
 echo -e "$(date) @ $(hostname)" | tee -a ${LOG_FILE}
-echo -e "-------------------------------------------"
-echo -e "CPU\t\t\tGPU\t\t\tTIME"
+echo -e "-------------------------------------------" | tee -a ${LOG_FILE}
+echo -e "CPU\t\t\tGPU\t\t\tTIME" | tee -a ${LOG_FILE}
 
 while true; do
 # Assigning measurments to variables
