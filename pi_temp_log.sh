@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Script: pi_temp_log.sh
 # Use: Logs the CPU and GPU temperatures and clock values of your Raspberry Pi 4
 # ASCII art adapted from user b3n on raspberrypi.org
@@ -23,9 +23,9 @@ if [[ ! -f "./pi_temp.log" ]]
 then touch pi_temp.log && echo "Created pi_temp.log"
 fi
 
-echo "$(date) @ $(hostname)" | tee -a ${LOG_FILE}
-echo "-------------------------------------------"
-echo "    CPU         -       GPU         -   TIME"
+echo -e "$(date) @ $(hostname)" | tee -a ${LOG_FILE}
+echo -e "-------------------------------------------"
+echo -e "CPU\t\t\tGPU\t\t\tTIME"
 
 while true; do
 # Assigning measurments to variables
@@ -35,7 +35,7 @@ arm_clock=$(vcgencmd measure_clock arm  | cut -d = -f2)
 gpu_clock=$(vcgencmd measure_clock core  | cut -d = -f2)
 
 # Return all the values + 8601 timestamp
-echo "$((cpu_temp/1000))'C @ $((arm_clock/1000000))MHz   -   $((gpu_temp))'C @ $((gpu_clock/1000000))MHz   -   $(date -I'seconds')" | tee -a ${LOG_FILE}
+echo -e "$((cpu_temp/1000))'C\t$((arm_clock/1000000))MHz\t\t$((gpu_temp))'C\t$((gpu_clock/1000000))MHz\t\t$(date -I'seconds')" | tee -a ${LOG_FILE}
 # Measurement interval
 sleep 3
 done
