@@ -20,14 +20,14 @@ The script will output the GPU and CPU temperatures and clock values, timestampe
 ## Sample Output:
 
 ```
-Sat Aug  1 20:20:28 UTC 2020 @ LibreELEC
+Fri Aug  7 02:34:11 UTC 2020 @ LibreELEC
 -------------------------------------------
-    CPU         -       GPU         -   TIME
-32'C @ 750MHz   -   32'C @ 250MHz   -   2020-08-06T04:21:47+0000
-32'C @ 750MHz   -   32'C @ 333MHz   -   2020-08-06T04:21:50+0000
-32'C @ 750MHz   -   32'C @ 250MHz   -   2020-08-06T04:21:54+0000
-31'C @ 750MHz   -   31'C @ 250MHz   -   2020-08-06T04:21:57+0000
-32'C @ 1000MHz   -   32'C @ 333MHz   -   2020-08-06T04:22:00+0000
+CPU			        GPU			        TIME
+32'C	750MHz		32'C	250MHz		2020-08-07T02:34:11+0000
+30'C	750MHz		30'C	250MHz		2020-08-07T02:34:14+0000
+30'C	750MHz		30'C	250MHz		2020-08-07T02:34:17+0000
+30'C	750MHz		30'C	250MHz		2020-08-07T02:34:20+0000
+29'C	750MHz		29'C	250MHz		2020-08-07T02:34:23+0000
 ```
 
 ## The Code
