@@ -33,7 +33,7 @@ Sat Aug  1 20:20:28 UTC 2020 @ LibreELEC
 ## The Code
 
 ```bash
-#!/bin/bash
+#!/bin/sh
 # Script: pi_temp_log.sh
 # Use: Logs the CPU and GPU temperatures and clock values of your Raspberry Pi 4
 # ASCII art adapted from user b3n on raspberrypi.org
