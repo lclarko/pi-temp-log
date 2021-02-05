@@ -19,8 +19,8 @@ echo "
 
 # Path to LOG_FILE and log file creation
 LOG_FILE=./pi_temp.log
-if [[ ! -f "./pi_temp.log" ]]
-then touch pi_temp.log && echo "Created pi_temp.log"
+if [[ ! -f $LOG_FILE ]]
+then touch $LOG_FILE && echo "Created $LOG_FILE"
 fi
 
 echo -e "$(date) @ $(hostname)" | tee -a ${LOG_FILE}
